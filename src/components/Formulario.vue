@@ -2,11 +2,11 @@
 <div class="box">
     <div class="columns">
         <div class="column is-8" role="form" aria-label="Formulario para criacao de uma nova tarefa">
-            <input type="text" class="input" placeholder="Qual tarefa voce deseja iniciar?">
+            <input type="text" class="input" placeholder="Qual tarefa voce deseja iniciar?" v-model="descricao">
         </div>
 
         <div class="column">
-            <temporizador></temporizador>
+            <temporizador @aoTemporizadorFinalizado="finalizarTarefa"></temporizador>
         </div>
     </div>
 </div>
@@ -19,6 +19,20 @@
     name: "MeuTemporizador",
     components:{
         Temporizador
+    },
+
+    data (){
+        return {
+            descricao: ''
+        }
+    },
+
+    methods: {
+        finalizarTarefa(tempoDecorrido:number):void {
+            console.log('Tempo da tarefa', tempoDecorrido)
+            console.log('Descricao da Tarefa', this.descricao)
+            this.descricao = ' '
+        }   
     }
     });    
 </script>
