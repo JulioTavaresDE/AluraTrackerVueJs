@@ -18,13 +18,12 @@
             <tbody>
                 <tr v-for="projeto in projetos" :key="projeto.id">
                     <td>{{ projeto.id }}</td>
-                    <td> {{ projeto.nome }}</td>
+                    <td>{{ projeto.nome }}</td>
                     <td>
-                        <router-link to="/projetos/${projeto.id}" class="button">
+                        <router-link :to= "`/projetos/${projeto.id}`" class="button">
                             <span class="icon is-small">
                                 <i class="fas fa-pencil-alt"></i>
                             </span>
-                            
                         </router-link>
                     </td>
                 </tr>
@@ -35,7 +34,7 @@
 
 <script lang="ts">
 import { useStore } from "@/store";
-import { computed } from "@vue/reactivity";
+import { computed } from "vue";
 import { defineComponent } from "vue";
  
 export default defineComponent ({
@@ -43,10 +42,10 @@ export default defineComponent ({
     setup(){
         const store = useStore()
         return {
-            projetos:computed(()=>store.state.projetos)
+            projetos:computed(() => store.state.projetos)
         }
     }
-})
+});
 </script>
 
 <style scoped>
