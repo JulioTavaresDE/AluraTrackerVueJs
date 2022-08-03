@@ -26,7 +26,7 @@ export default defineComponent({
     data(){
         return {
             contexto:{
-                [TipoNotificacao.SUCESSO]:'is-sucess',
+                [TipoNotificacao.SUCESSO]:'is-success',
                 [TipoNotificacao.ATENCAO]:'is-warning',
                 [TipoNotificacao.FALHA]:'is-danger',
                 
