@@ -4,6 +4,7 @@
       <BarraLateral @aoTemaAlterado="trocarTema"></BarraLateral>
     </div>
     <div class="column is-three-quarter conteudo">
+      <Notificacoes></Notificacoes>
       <router-view></router-view>
     </div>
   </main>
@@ -12,11 +13,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import BarraLateral from './components/BarraLateral.vue';
-
+import Notificacoes from './components/Notificacoes.vue';
 
 export default defineComponent({
     name: "App",
-    components: { BarraLateral, }, 
+    components: { BarraLateral, Notificacoes }, 
     data() {
       return {
         modoEscuroAtivo: false
@@ -24,8 +25,7 @@ export default defineComponent({
     },
 
     methods:{
-     
-      trocarTema(modoEscuroAtivo:boolean){
+        trocarTema(modoEscuroAtivo:boolean){
         this.modoEscuroAtivo = modoEscuroAtivo
       }
     }
@@ -36,7 +36,6 @@ export default defineComponent({
   .lista {
     padding: 1.25rem;
   }
-
 
 main {
   --bg-primario: #fff;
