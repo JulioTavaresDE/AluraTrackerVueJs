@@ -12,7 +12,7 @@
             </div>
         </div>
     </Box>
-</template>
+</template> 
 
 <script lang="ts">
 import cronometro from './cronometro.vue';
