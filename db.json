@@ -7,18 +7,43 @@
     {
       "nome": "ByteBank",
       "id": 2
+    },
+    {
+      "nome": "POLA",
+      "id": 3
+    },
+    {
+      "nome": "Julio Tavares",
+      "id": 4
     }
   ],
-
-  "tarefas":[
+  "tarefas": [
     {
       "id": 1,
-      "duracaoEmSegundos" : 120,
-      "descricao" : "Configuracao do ambiente",
-      "projeto" : {
-      "id" : 1,
-      "nome": "Alura Tracker 3.0"
+      "duracaoEmSegundos": 120,
+      "descricao": "Configuracao do ambiente",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
       }
+    },
+    {
+      "duracaoEmSegundos": 9,
+      "descricao": "Refaturacao do Vueex",
+      "projeto": {
+        "nome": "ByteBank",
+        "id": 2
+      },
+      "id": 2
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "Nova Refaturacao",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 3
     }
   ]
 }
