@@ -45,7 +45,6 @@ import { OBTER_PROJETOS,REMOVER_PROJETO } from "@/store/tipo-acoes";
 import { computed } from "vue";
 import { defineComponent } from "vue";
 
-
 export default defineComponent ({
     name:'MinhaLista',
     methods: {
