@@ -1,12 +1,24 @@
 <template>
   <Formulario @aoSalvarTarefa="salvarTarefa"></Formulario>
   <div class="lista">
+    
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="text" placeholder="Digite para filtrar" v-model="filtro">
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+        
+      </p>
+    </div>
+
     <tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" @aoTarefaClicada="selecionarTarefa">
     </tarefa>
+    
     <Box v-if="listaEstaVazia">
       Voce nao esta produtivo hoje :(
     </Box>
-
+    
     <div class="modal" :class="{ 'is-active': tarefaSelecionada }" v-if="tarefaSelecionada">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -30,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent,ref } from 'vue';
 import Formulario from '../components/Formulario.vue';
 import Tarefa from '../components/Tarefa.vue';
 import Box from '../components/Box.vue';
@@ -70,22 +82,30 @@ export default defineComponent({
     fecharModal() {
       this.tarefaSelecionada = null
     },
-    alterarTarefa(){
-      this.store.dispatch(ALTERAR_TAREFA,this.tarefaSelecionada)
-      .then(()=> this.fecharModal())
+    alterarTarefa() {
+      this.store.dispatch(ALTERAR_TAREFA, this.tarefaSelecionada)
+        .then(() => this.fecharModal())
     }
   },
 
   setup() {
-    const store = useStore()
-    store.dispatch(OBTER_TAREFAS)
-    store.dispatch(OBTER_PROJETOS)
-    return {
-      tarefas: computed(() => store.state.tarefas),
-      store
-    }
-  }
+    const store = useStore();
+    store.dispatch(OBTER_TAREFAS);
+    store.dispatch(OBTER_PROJETOS);
+    const filtro = ref("");
 
+    const tarefas = computed(() => 
+      store.state.tarefas.filter(
+      (t) => !filtro.value || t.descricao.includes(filtro.value)
+      )
+      );
+
+    return {
+      tarefas,
+      store,
+      filtro
+    };
+  },
 });
 </script>
 
