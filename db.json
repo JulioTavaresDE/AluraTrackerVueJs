@@ -21,7 +21,7 @@
     {
       "id": 1,
       "duracaoEmSegundos": 120,
-      "descricao": "Configuracao do ambiente",
+      "descricao": "Refaturando Codigo3",
       "projeto": {
         "id": 1,
         "nome": "Alura Tracker 3.0"
@@ -29,7 +29,7 @@
     },
     {
       "duracaoEmSegundos": 9,
-      "descricao": "Refaturacao do Vueex",
+      "descricao": "Refaturando Codigo2",
       "projeto": {
         "nome": "ByteBank",
         "id": 2
@@ -38,7 +38,7 @@
     },
     {
       "duracaoEmSegundos": 4,
-      "descricao": "Nova Refaturacao",
+      "descricao": "Estudando Padroes de Projeto",
       "projeto": {
         "id": 1,
         "nome": "Alura Tracker 3.0"

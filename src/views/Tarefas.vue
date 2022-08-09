@@ -21,7 +21,7 @@
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Salvar alteracoes</button>
+          <button @click="alterarTarefa" class="button is-success">Salvar alteracoes</button>
           <button @click="fecharModal" class="button">Cancelar</button>
         </footer>
       </div>
@@ -39,6 +39,7 @@ import { OBTER_TAREFAS } from '@/store/tipo-acoes';
 import { CADASTRAR_TAREFA } from '@/store/tipo-acoes';
 import ITarefa from '@/interfaces/ITarefa';
 import { OBTER_PROJETOS } from '@/store/tipo-acoes';
+import { ALTERAR_TAREFA } from '@/store/tipo-acoes';
 
 export default defineComponent({
   name: "App",
@@ -59,7 +60,6 @@ export default defineComponent({
     }
   },
 
-
   methods: {
     salvarTarefa(tarefa: ITarefa) {
       this.store.dispatch(CADASTRAR_TAREFA, tarefa)
@@ -69,6 +69,10 @@ export default defineComponent({
     },
     fecharModal() {
       this.tarefaSelecionada = null
+    },
+    alterarTarefa(){
+      this.store.dispatch(ALTERAR_TAREFA,this.tarefaSelecionada)
+      .then(()=> this.fecharModal())
     }
   },
 
