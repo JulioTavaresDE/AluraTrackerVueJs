@@ -33,7 +33,7 @@
     },
     {
       "duracaoEmSegundos": 9,
-      "descricao": "Refaturando Codigo2",
+      "descricao": "Refaturando Codigo mais uma vez",
       "projeto": {
         "nome": "ByteBank",
         "id": 2
